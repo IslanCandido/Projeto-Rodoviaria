@@ -30,9 +30,13 @@ public class Rota {
 
     @Override
     public String toString() {
-        return getData() + " - " + getCidadePartida() + " as " + getHorarioDestino() + " - de " + getCidadePartida() + " até " + getCidadeDestino();
+        return getData() + " - " + getHorarioPartida() + " as " + getHorarioDestino() + " - de " + getCidadePartida()+ " até " + getCidadeDestino();
     }    
 
+    public String toRota(){
+        return getCidadePartida() + " / " + getCidadeDestino();
+    }
+    
     public int getCodigo() {
         return codigo;
     }

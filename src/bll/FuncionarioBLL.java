@@ -52,6 +52,10 @@ public class FuncionarioBLL {
     public boolean verificarCpfIgual(String cpf) {
         return dal.verificarCpfIgual(cpf);
     }
+    
+    public boolean verificarMatriculaIgual(String matricula) {
+        return dal.verificarMatriculaIgual(matricula);
+    }
 
     public boolean autenticarLogin(String usuario, String senha){
         return dal.autenticarUsuario(usuario, senha);

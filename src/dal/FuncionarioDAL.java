@@ -232,6 +232,21 @@ public class FuncionarioDAL implements BasicoDAL<Funcionario> {
         return resultado;
     }
 
+    public boolean verificarMatriculaIgual(String matricula) {
+        boolean resultado = false;
+        try {
+            PreparedStatement preparedStatement = conexao.prepareStatement("SELECT * FROM funcionarios WHERE fun_matricula = ?");
+            preparedStatement.setString(1, matricula);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            resultado = rs.next();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "ERRO AO CONSULTAR MATRICULAS! ");
+        }
+
+        return resultado;
+    }
+    
     public boolean verificarCpfIgual(String cpf) {
         boolean resultado = false;
         try {

@@ -102,7 +102,7 @@ public class OnibusDAL implements BasicoDAL<Onibus> {
                 listOnibus.add(onibus);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "ERRO AO MOSTRAR TODOS OS DADOS! " + e);
+            JOptionPane.showMessageDialog(null, "ERRO AO MOSTRAR TODOS OS DADOS!");
         }
         return listOnibus;
     }

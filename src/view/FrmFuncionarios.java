@@ -54,7 +54,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         }
     }
     
-        private void criarTabela() {
+    private void criarTabela() {
         tblFuncionarios = new JTable(modelo);
         modelo.addColumn("Código");
         modelo.addColumn("Nome");
@@ -115,7 +115,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         txtTelefone.setValue("");
         cbxCargos.setSelectedIndex(0);
         txtPis.setValue("");
-        txtMatricula.setText("");
+        txtMatricula.setValue("");
         txtSenhaAcesso.setText("");
         btnSalvar.setEnabled(true);
     }
@@ -322,7 +322,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         jScrollPane2.setBounds(10, 170, 780, 180);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel7.setText("Matricula");
+        jLabel7.setText("Matrícula");
         getContentPane().add(jLabel7);
         jLabel7.setBounds(650, 60, 80, 20);
 
@@ -501,9 +501,9 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     private void txtSenhaAcessoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaAcessoKeyTyped
         Character ch = evt.getKeyChar();
         int comprimentoDeCampo = txtSenhaAcesso.getText().length();
-        if (comprimentoDeCampo >= 12) {
+        if (comprimentoDeCampo >= 20) {
             evt.consume();
-            JOptionPane.showMessageDialog(rootPane, " SENHA MUITO LONGA!\n(Maximo de 12 caracteres)", "Atenção!!!", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, " SENHA MUITO LONGA!\n(Maximo de 20 caracteres)", "Atenção!!!", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_txtSenhaAcessoKeyTyped
 
@@ -553,7 +553,8 @@ public class FrmFuncionarios extends javax.swing.JFrame {
             } else {
                 if (funcionarioBLL.isCpf(txtCpf.getText()) && funcionarioBLL.isData(txtDataNascimento.getText()) && 
                         funcionarioBLL.isEmail(txtEmail.getText()) && funcionarioBLL.isPIS(txtPis.getText()) && 
-                        !funcionarioBLL.verificarCpfIgual(txtCpf.getText()) && !funcionarioBLL.verificarPisIgual(txtPis.getText())) {
+                        !funcionarioBLL.verificarCpfIgual(txtCpf.getText()) && !funcionarioBLL.verificarPisIgual(txtPis.getText()) 
+                        && !funcionarioBLL.verificarMatriculaIgual(txtMatricula.getText())) {
                     if (funcionarioBLL.salvar(funcionario)) {
                         JOptionPane.showMessageDialog(rootPane, "Salvo com sucesso!", "Mensagem!!!", JOptionPane.INFORMATION_MESSAGE);
                     } else {
@@ -579,6 +580,9 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                     }
                     if (funcionarioBLL.verificarPisIgual(txtPis.getText())) {
                         JOptionPane.showMessageDialog(rootPane, "PIS JÁ FOI CADASTRADO!", "Cuidado!", JOptionPane.ERROR_MESSAGE);
+                    }
+                    if (funcionarioBLL.verificarMatriculaIgual(txtMatricula.getText())) {
+                                JOptionPane.showMessageDialog(rootPane, "MATRÍCULA JÁ FOI CADASTRADO!", "Cuidado!", JOptionPane.ERROR_MESSAGE);
                     }
                 }
             }

@@ -8,7 +8,9 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     FrmModelos telaModelos;
     FrmMarcas telaMarcas;
     FrmLogin telaLogin;
-    
+    FrmRotas telaRotas;
+    FrmVenderPassagem telaVendas;
+
     public FrmMenuPrincipal() {
         initComponents();
     }
@@ -31,8 +33,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         MenuItemCadastrarRota = new javax.swing.JMenuItem();
         MenuVenda = new javax.swing.JMenu();
         MenuItemRegistrarVenda = new javax.swing.JMenuItem();
-        MenuRelatorio = new javax.swing.JMenu();
-        jMenuItemEmitirRelatorio = new javax.swing.JMenuItem();
         MenuSair = new javax.swing.JMenu();
         MenuItemFecharSistema = new javax.swing.JMenuItem();
         MenuItemFazerLogoff = new javax.swing.JMenuItem();
@@ -115,6 +115,11 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         MenuItemCadastrarRota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/icone_rota.png"))); // NOI18N
         MenuItemCadastrarRota.setText("Cadastrar Rota");
         MenuItemCadastrarRota.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        MenuItemCadastrarRota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItemCadastrarRotaActionPerformed(evt);
+            }
+        });
         MenuRota.add(MenuItemCadastrarRota);
 
         jMenuBar2.add(MenuRota);
@@ -125,20 +130,14 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         MenuItemRegistrarVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/icone_passagem.png"))); // NOI18N
         MenuItemRegistrarVenda.setText("Registrar venda/reserva");
         MenuItemRegistrarVenda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        MenuItemRegistrarVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItemRegistrarVendaActionPerformed(evt);
+            }
+        });
         MenuVenda.add(MenuItemRegistrarVenda);
 
         jMenuBar2.add(MenuVenda);
-
-        MenuRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/cadastrar_relatorios.png"))); // NOI18N
-        MenuRelatorio.setText("  ");
-        MenuRelatorio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jMenuItemEmitirRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/icone_relatorios.png"))); // NOI18N
-        jMenuItemEmitirRelatorio.setText("Emitir Relatórios");
-        jMenuItemEmitirRelatorio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        MenuRelatorio.add(jMenuItemEmitirRelatorio);
-
-        jMenuBar2.add(MenuRelatorio);
 
         MenuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/sair.png"))); // NOI18N
         MenuSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -229,6 +228,26 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_MenuItemFazerLogoffActionPerformed
 
+    private void MenuItemCadastrarRotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemCadastrarRotaActionPerformed
+        if(telaRotas == null){
+            telaRotas = new FrmRotas();
+            telaRotas.setVisible(true);
+        } else{
+            telaRotas.dispose();
+            telaRotas.setVisible(true);
+        }
+    }//GEN-LAST:event_MenuItemCadastrarRotaActionPerformed
+
+    private void MenuItemRegistrarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemRegistrarVendaActionPerformed
+        if(telaVendas == null){
+            telaVendas = new FrmVenderPassagem();
+            telaVendas.setVisible(true);
+        } else{
+            telaVendas.dispose();
+            telaVendas.setVisible(true);
+        }
+    }//GEN-LAST:event_MenuItemRegistrarVendaActionPerformed
+
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -275,12 +294,10 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem MenuItemRegistrarVenda;
     private javax.swing.JMenu MenuOnibus;
     private javax.swing.JMenu MenuPessoa;
-    private javax.swing.JMenu MenuRelatorio;
     private javax.swing.JMenu MenuRota;
     private javax.swing.JMenu MenuSair;
     private javax.swing.JMenu MenuVenda;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItemEmitirRelatorio;
     private javax.swing.JLabel lblFundoMenu;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,24 +5,29 @@ public class Venda {
     private Rota idRota;
     private int assento;
     private FormaPagamento idFormaDePagamento;
+    private Funcionario idFuncionario;
     private Cliente idCliente;
     private String nomePassageiro;
-    private String valor;
+    private float valor;
+    private String situacao;
 
     public Venda() {
         idCliente = new Cliente();
         idFormaDePagamento = new FormaPagamento();
         idRota = new Rota();
+        idFuncionario = new Funcionario();
     }
 
-    public Venda(int codigo, Rota idRota, int assento, FormaPagamento idFormaDePagamento, Cliente idCliente, String nomePassageiro, String valor) {
+    public Venda(int codigo, Rota idRota, int assento, FormaPagamento idFormaDePagamento, Funcionario idFuncionario, Cliente idCliente, String nomePassageiro, float valor, String situacao) {
         this.codigo = codigo;
         this.idRota = idRota;
         this.assento = assento;
         this.idFormaDePagamento = idFormaDePagamento;
+        this.idFuncionario = idFuncionario;
         this.idCliente = idCliente;
         this.nomePassageiro = nomePassageiro;
         this.valor = valor;
+        this.situacao = situacao;
     }
     
     public int getCodigo() {
@@ -73,12 +78,28 @@ public class Venda {
         this.nomePassageiro = nomePassageiro;
     }
 
-    public String getValor() {
+    public float getValor() {
         return valor;
     }
 
-    public void setValor(String valor) {
+    public void setValor(float valor) {
         this.valor = valor;
+    }
+
+    public Funcionario getIdFuncionario() {
+        return idFuncionario;
+    }
+
+    public void setIdFuncionario(Funcionario idFuncionario) {
+        this.idFuncionario = idFuncionario;
+    }
+
+    public String getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(String situacao) {
+        this.situacao = situacao;
     }
     
     
